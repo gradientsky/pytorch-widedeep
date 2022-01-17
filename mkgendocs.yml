@@ -1,0 +1,289 @@
+sources_dir: docs_mk
+templates_dir: docs_mk/templates
+repo: https://github.com/jrzaurin/pytorch-widedeep
+version: master
+pages:
+  - page: "docs_mk/pytorch_widedeep/callbacks.md"
+    source: "pytorch_widedeep/callbacks.py"
+    functions:
+      - _get_current_time
+      - _is_metric
+    classes:
+      - CallbackContainer
+      - Callback
+      - History
+      - LRShedulerCallback
+      - MetricCallback
+      - LRHistory
+      - ModelCheckpoint
+      - EarlyStopping
+      - RayTuneReporter
+  - page: "docs_mk/pytorch_widedeep/training/trainer.md"
+    source: "pytorch_widedeep/training/trainer.py"
+    classes:
+      - Trainer
+  - page: "docs_mk/pytorch_widedeep/models/transformers/_embeddings_layers.md"
+    source: "pytorch_widedeep/models/transformers/_embeddings_layers.py"
+    classes:
+      - FullEmbeddingDropout
+      - SharedEmbeddings
+      - ContinuousEmbeddings
+      - CategoricalEmbeddings
+      - CatAndContEmbeddings
+  - page: "docs_mk/pytorch_widedeep/models/tabnet/sparsemax.md"
+    source: "pytorch_widedeep/models/tabnet/sparsemax.py"
+    functions:
+      - _make_ix_like
+    classes:
+      - SparsemaxFunction
+      - Sparsemax
+      - Entmax15Function
+      - Entmax15
+  - page: "docs_mk/pytorch_widedeep/models/wide_deep.md"
+    source: "pytorch_widedeep/models/wide_deep.py"
+    classes:
+      - WideDeep
+  - page: "docs_mk/pytorch_widedeep/models/transformers/_attention_layers.md"
+    source: "pytorch_widedeep/models/transformers/_attention_layers.py"
+    classes:
+      - PositionwiseFF
+      - NormAdd
+      - AddNorm
+      - MultiHeadedAttention
+      - LinearAttention
+      - AdditiveAttention
+  - page: "docs_mk/pytorch_widedeep/utils/image_utils.md"
+    source: "pytorch_widedeep/utils/image_utils.py"
+    classes:
+      - AspectAwarePreprocessor
+      - SimplePreprocessor
+  - page: "docs_mk/pytorch_widedeep/datasets/_base.md"
+    source: "pytorch_widedeep/datasets/_base.py"
+    functions:
+      - load_bio_kdd04
+      - load_adult
+      - load_ecoli
+  - page: "docs_mk/pytorch_widedeep/models/tab_mlp.md"
+    source: "pytorch_widedeep/models/tab_mlp.py"
+    functions:
+      - get_activation_fn
+      - dense_layer
+    classes:
+      - GEGLU
+      - REGLU
+      - CatEmbeddingsAndCont
+      - MLP
+      - TabMlp
+  - page: "docs_mk/pytorch_widedeep/utils/general_utils.md"
+    source: "pytorch_widedeep/utils/general_utils.py"
+    functions:
+      - set_default_attr
+    classes:
+      - Alias
+  - page: "docs_mk/pytorch_widedeep/models/wide.md"
+    source: "pytorch_widedeep/models/wide.py"
+    classes:
+      - Wide
+  - page: "docs_mk/pytorch_widedeep/models/deep_text.md"
+    source: "pytorch_widedeep/models/deep_text.py"
+    classes:
+      - DeepText
+  - page: "docs_mk/pytorch_widedeep/models/tabnet/tab_net.md"
+    source: "pytorch_widedeep/models/tabnet/tab_net.py"
+    classes:
+      - TabNet
+      - TabNetPredLayer
+  - page: "docs_mk/pytorch_widedeep/training/_multiple_transforms.md"
+    source: "pytorch_widedeep/training/_multiple_transforms.py"
+    classes:
+      - MultipleTransforms
+  - page: "docs_mk/pytorch_widedeep/preprocessing/tab_preprocessor.md"
+    source: "pytorch_widedeep/preprocessing/tab_preprocessor.py"
+    functions:
+      - embed_sz_rule
+    classes:
+      - TabPreprocessor
+  - page: "docs_mk/pytorch_widedeep/training/_multiple_optimizer.md"
+    source: "pytorch_widedeep/training/_multiple_optimizer.py"
+    classes:
+      - MultipleOptimizer
+  - page: "docs_mk/pytorch_widedeep/metrics.md"
+    source: "pytorch_widedeep/metrics.py"
+    classes:
+      - Metric
+      - MultipleMetrics
+      - Accuracy
+      - Precision
+      - Recall
+      - FBetaScore
+      - F1Score
+      - R2Score
+  - page: "docs_mk/pytorch_widedeep/training/_finetune.md"
+    source: "pytorch_widedeep/training/_finetune.py"
+    classes:
+      - FineTune
+  - page: "docs_mk/pytorch_widedeep/training/_loss_and_obj_aliases.md"
+    source: "pytorch_widedeep/training/_loss_and_obj_aliases.py"
+    classes:
+      - classproperty
+      - _LossAliases
+      - _ObjectiveToMethod
+  - page: "docs_mk/pytorch_widedeep/losses.md"
+    source: "pytorch_widedeep/losses.py"
+    classes:
+      - TweedieLoss
+      - QuantileLoss
+      - ZILNLoss
+      - FocalLoss
+      - MSLELoss
+      - RMSELoss
+      - RMSLELoss
+  - page: "docs_mk/pytorch_widedeep/models/transformers/tab_transformer.md"
+    source: "pytorch_widedeep/models/transformers/tab_transformer.py"
+    classes:
+      - TabTransformer
+  - page: "docs_mk/pytorch_widedeep/models/deep_image.md"
+    source: "pytorch_widedeep/models/deep_image.py"
+    functions:
+      - conv_layer
+    classes:
+      - DeepImage
+  - page: "docs_mk/pytorch_widedeep/models/transformers/tab_fastformer.md"
+    source: "pytorch_widedeep/models/transformers/tab_fastformer.py"
+    classes:
+      - TabFastFormer
+  - page: "docs_mk/pytorch_widedeep/models/transformers/_encoders.md"
+    source: "pytorch_widedeep/models/transformers/_encoders.py"
+    classes:
+      - TransformerEncoder
+      - SaintEncoder
+      - FTTransformerEncoder
+      - PerceiverEncoder
+      - FastFormerEncoder
+  - page: "docs_mk/pytorch_widedeep/utils/deeptabular_utils.md"
+    source: "pytorch_widedeep/utils/deeptabular_utils.py"
+    classes:
+      - LabelEncoder
+  - page: "docs_mk/pytorch_widedeep/preprocessing/image_preprocessor.md"
+    source: "pytorch_widedeep/preprocessing/image_preprocessor.py"
+    classes:
+      - ImagePreprocessor
+  - page: "docs_mk/pytorch_widedeep/training/_trainer_utils.md"
+    source: "pytorch_widedeep/training/_trainer_utils.py"
+    functions:
+      - wd_train_val_split
+      - _build_train_dict
+      - print_loss_and_metric
+      - save_epoch_logs
+      - alias_to_loss
+  - page: "docs_mk/pytorch_widedeep/models/transformers/ft_transformer.md"
+    source: "pytorch_widedeep/models/transformers/ft_transformer.py"
+    classes:
+      - FTTransformer
+  - page: "docs_mk/pytorch_widedeep/training/_wd_dataset.md"
+    source: "pytorch_widedeep/training/_wd_dataset.py"
+    classes:
+      - WideDeepDataset
+  - page: "docs_mk/pytorch_widedeep/initializers.md"
+    source: "pytorch_widedeep/initializers.py"
+    classes:
+      - Initializer
+      - MultipleInitializer
+      - Normal
+      - Uniform
+      - ConstantInitializer
+      - XavierUniform
+      - XavierNormal
+      - KaimingUniform
+      - KaimingNormal
+      - Orthogonal
+  - page: "docs_mk/pytorch_widedeep/optim/radam.md"
+    source: "pytorch_widedeep/optim/radam.py"
+    classes:
+      - RAdam
+  - page: "docs_mk/pytorch_widedeep/models/tab_resnet.md"
+    source: "pytorch_widedeep/models/tab_resnet.py"
+    classes:
+      - BasicBlock
+      - DenseResnet
+      - TabResnet
+  - page: "docs_mk/pytorch_widedeep/utils/fastai_transforms.md"
+    source: "pytorch_widedeep/utils/fastai_transforms.py"
+    functions:
+      - partition
+      - partition_by_cores
+      - ifnone
+      - num_cpus
+      - spec_add_spaces
+      - rm_useless_spaces
+      - replace_rep
+      - replace_wrep
+      - fix_html
+      - replace_all_caps
+      - deal_caps
+    classes:
+      - BaseTokenizer
+      - SpacyTokenizer
+      - Tokenizer
+      - Vocab
+  - page: "docs_mk/pytorch_widedeep/models/transformers/saint.md"
+    source: "pytorch_widedeep/models/transformers/saint.py"
+    classes:
+      - SAINT
+  - page: "docs_mk/pytorch_widedeep/training/_multiple_lr_scheduler.md"
+    source: "pytorch_widedeep/training/_multiple_lr_scheduler.py"
+    classes:
+      - MultipleLRScheduler
+  - page: "docs_mk/pytorch_widedeep/models/transformers/tab_perceiver.md"
+    source: "pytorch_widedeep/models/transformers/tab_perceiver.py"
+    classes:
+      - TabPerceiver
+  - page: "docs_mk/pytorch_widedeep/preprocessing/base_preprocessor.md"
+    source: "pytorch_widedeep/preprocessing/base_preprocessor.py"
+    functions:
+      - check_is_fitted
+    classes:
+      - BasePreprocessor
+  - page: "docs_mk/pytorch_widedeep/models/tabnet/_utils.md"
+    source: "pytorch_widedeep/models/tabnet/_utils.py"
+    functions:
+      - create_explain_matrix
+      - _extract_tabnet_params
+  - page: "docs_mk/pytorch_widedeep/models/tabnet/_layers.md"
+    source: "pytorch_widedeep/models/tabnet/_layers.py"
+    functions:
+      - initialize_non_glu
+      - initialize_glu
+    classes:
+      - GBN
+      - GLU_Layer
+      - GLU_Block
+      - FeatTransformer
+      - AttentiveTransformer
+      - TabNetEncoder
+  - page: "docs_mk/pytorch_widedeep/dataloaders.md"
+    source: "pytorch_widedeep/dataloaders.py"
+    functions:
+      - get_class_weights
+    classes:
+      - DataLoaderDefault
+      - DataLoaderImbalanced
+  - page: "docs_mk/pytorch_widedeep/utils/text_utils.md"
+    source: "pytorch_widedeep/utils/text_utils.py"
+    functions:
+      - simple_preprocess
+      - get_texts
+      - pad_sequences
+      - build_embeddings_matrix
+  - page: "docs_mk/pytorch_widedeep/preprocessing/wide_preprocessor.md"
+    source: "pytorch_widedeep/preprocessing/wide_preprocessor.py"
+    classes:
+      - WidePreprocessor
+  - page: "docs_mk/pytorch_widedeep/tab2vec.md"
+    source: "pytorch_widedeep/tab2vec.py"
+    classes:
+      - Tab2Vec
+  - page: "docs_mk/pytorch_widedeep/preprocessing/text_preprocessor.md"
+    source: "pytorch_widedeep/preprocessing/text_preprocessor.py"
+    classes:
+      - TextPreprocessor
