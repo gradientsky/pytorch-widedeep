@@ -17,12 +17,18 @@ allowed_activations = [
 
 
 class GEGLU(nn.Module):
+    def __init__(self):
+        pass
+
     def forward(self, x):
         x, gates = x.chunk(2, dim=-1)
         return x * F.gelu(gates)
 
 
 class REGLU(nn.Module):
+    def __init__(self):
+        pass
+
     def forward(self, x):
         x, gates = x.chunk(2, dim=-1)
         return x * F.gelu(gates)

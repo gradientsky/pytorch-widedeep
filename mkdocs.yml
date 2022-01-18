@@ -2,11 +2,13 @@ site_name: pytorch_widedeep
 repo_name: 'pytorch_widedeep'
 repo_url: 'https://github.com/jrzaurin/pytorch-widedeep'
 copyright: 'Javier Zaurin and Pavol Mulinka'
+docs_dir: docs_mk
+site_url: ""
 
 extra:
     social:
         - icon: fontawesome/brands/medium
-          link: https://medium.com/@leddebruijn
+          link: https://jrzaurin.medium.com/
 
 # Navigation
 # There is no 'nav' in this config because we use mkdocs-awesome-pages-plugin
@@ -14,7 +16,8 @@ extra:
 
 theme:
     name: material
-    custom_dir: docs_mk/assets/theme/
+    custom_dir: docs_mk_assets/theme/
+
     palette:
         # scheme: preference uses dark or light mode based on user (OS) preference
         scheme: preference
@@ -22,7 +25,7 @@ theme:
         accent: deep-purple
     icon:
         logo: fontawesome/solid/code
-    favicon: '/docs_mk/assets/images/favicon.ico'
+    favicon: '/docs_mk_assets/images/favicon.ico'
     language: 'en'
 
 
@@ -87,7 +90,7 @@ use_directory_urls: false
 
 # Better PDF styling for when you create PDFs using mkdocs-pdf-export-plugin
 extra_css:
-  - docs_mk/assets/stylesheets/pdf-export.css
+  - docs_mk_assets/stylesheets/pdf-export.css
 
 # Setup mathjax, see
 # https://squidfunk.github.io/mkdocs-material/reference/mathjax/

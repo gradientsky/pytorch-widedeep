@@ -39,6 +39,8 @@ class SparsemaxFunction(Function):
     :cite:`DBLP:journals/corr/MartinsA16` for detailed description.
     By Ben Peters and Vlad Niculae
     """
+    def __init__(self):
+        pass
 
     @staticmethod
     def forward(ctx, input, dim=-1):
@@ -126,6 +128,8 @@ class Entmax15Function(Function):
     :cite:`https://arxiv.org/abs/1905.05702 for detailed description.
     Source: https://github.com/deep-spin/entmax
     """
+    def __init__(self):
+        pass
 
     @staticmethod
     def forward(ctx, input, dim=-1):

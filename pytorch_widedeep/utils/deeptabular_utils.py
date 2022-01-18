@@ -3,7 +3,7 @@ import warnings
 import pandas as pd
 from sklearn.exceptions import NotFittedError
 
-from ..wdtypes import *  # noqa: F403
+from pytorch_widedeep.wdtypes import *  # noqa: F403
 
 warnings.filterwarnings("ignore")
 pd.options.mode.chained_assignment = None

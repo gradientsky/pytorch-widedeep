@@ -35,6 +35,8 @@ class _LossAliases:
         "quantile": ["quantile"],
         "tweedie": ["tweedie"],
     }
+    def __init__(self):
+        pass
 
     @classproperty
     def alias_to_loss(cls):
@@ -77,6 +79,8 @@ class _ObjectiveToMethod:
         "tweedie": "regression",
         "quantile": "qregression",
     }
+    def __init__(self):
+        pass
 
     @classproperty
     def method_to_objecive(cls):

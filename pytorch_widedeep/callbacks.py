@@ -149,6 +149,8 @@ class History(Callback):
     This callback runs by default within :obj:`Trainer`, therefore, should not
     be passed to the :obj:`Trainer`. Is included here just for completion.
     """
+    def __init__(self):
+        pass
 
     def on_train_begin(self, logs: Optional[Dict] = None):
         self.trainer.history = {}
@@ -173,6 +175,8 @@ class LRShedulerCallback(Callback):
     This callback runs by default within :obj:`Trainer`, therefore, should not
     be passed to the :obj:`Trainer`. Is included here just for completion.
     """
+    def __init__(self):
+        pass    
 
     def on_batch_end(self, batch: int, logs: Optional[Dict] = None):
         if self.trainer.lr_scheduler is not None:
@@ -228,6 +232,8 @@ class MetricCallback(Callback):
     This callback runs by default within :obj:`Trainer`, therefore, should not
     be passed to the :obj:`Trainer`. Is included here just for completion.
     """
+    def __init__(self):
+        pass
 
     def __init__(self, container: MultipleMetrics):
         self.container = container
@@ -710,6 +716,8 @@ class RayTuneReporter(Callback):
     --------
     see /examples/12_HyperParameter_tuning_w_RayTune.ipynb
     """
+    def __init__(self):
+        pass
 
     def on_epoch_end(
         self, epoch: int, logs: Optional[Dict] = None, metric: Optional[float] = None

@@ -36,7 +36,10 @@ extras["quality"] = [
     "isort",
     "flake8",
 ]
-extras["all"] = extras["test"] + extras["docs"] + extras["quality"]
+extras["misc"] = [
+    "pre-commit",
+]
+extras["all"] = extras["test"] + extras["docs"] + extras["quality"] + extras["misc"]
 
 # main setup kw args
 setup_kwargs = {

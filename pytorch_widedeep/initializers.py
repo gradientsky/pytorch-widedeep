@@ -9,6 +9,9 @@ warnings.filterwarnings("default")
 
 
 class Initializer(object):
+    def __init__(self):
+        pass
+
     def __call__(self, model: nn.Module):
         raise NotImplementedError("Initializer must implement this method")
 
