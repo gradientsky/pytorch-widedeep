@@ -1,22 +1,20 @@
 """Automates Python scripts formatting, linting and Mkdocs documentation."""
 
+import os
 import ast
 import importlib
-import re
 from collections import defaultdict
 import pathlib
 import os
 from pathlib import Path
-from typing import Union, get_type_hints
 import inspect
-
+import shutil
 
 def automate_mkdocs_from_docstring(
-    mkdocs_dir: Union[str, Path], mkgendocs_f: str, repo_dir: Path, match_string: str
+    mkgendocs_f: str, repo_dir: Path, match_string: str
 ) -> str:
     """Automates the -pages for mkgendocs package by adding all Python functions in a directory to the mkgendocs config.
     Args:
-        mkdocs_dir (typing.Union[str, pathlib.Path]): textual directory for the hierarchical directory & navigation in Mkdocs
         mkgendocs_f (str): The configurations file for the mkgendocs package
         repo_dir (pathlib.Path): textual directory to search for Python functions in
         match_string (str): the text to be matches, after which the functions will be added in mkgendocs format
@@ -104,11 +102,24 @@ def main():
     repo_dir = Path.cwd().joinpath("pytorch_widedeep")
 
     automate_mkdocs_from_docstring(
-        mkdocs_dir="docs_mk",
         mkgendocs_f="mkgendocs.yml",
         repo_dir=repo_dir,
         match_string="pages:\n",
     )
+    # mkgendocs copies everything from templates dir to sources_dir (sources_dir is recreated each time)
+    # if we want to have examples/notebooks/*.ipynb in documentation we have to copy them to templates ourselves    
+    try:
+        shutil.rmtree("docs_mk/templates/examples")
+    except OSError as e:
+        print("Error: %s : %s" % ("docs_mk/templates/examples", e.strerror))
+    os.makedirs("docs_mk/templates/examples")
+
+    cwd = os.getcwd() + "/examples"
+    onlyfiles = [os.path.join(cwd, f) for f in os.listdir("examples") if os.path.isfile(os.path.join(cwd, f))]
+    for file in onlyfiles:
+        if ".ipynb" in file:  # and ".ipynb_checkpoints" not in file:
+            shutil.copy(file, "docs_mk/templates/examples/")
+
 
 
 if __name__ == "__main__":
