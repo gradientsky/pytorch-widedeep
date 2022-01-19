@@ -1,14 +1,12 @@
-"""Automates Python scripts formatting, linting and Mkdocs documentation."""
-
 import os
 import ast
 import importlib
 from collections import defaultdict
 import pathlib
-import os
 from pathlib import Path
 import inspect
 import shutil
+
 
 def automate_mkdocs_from_docstring(
     mkgendocs_f: str, repo_dir: Path, match_string: str
@@ -27,7 +25,9 @@ def automate_mkdocs_from_docstring(
     p = repo_dir.glob("**/*.py")
     scripts = [x for x in p if x.is_file()]
 
-    if Path.cwd() != repo_dir:  # look for mkgendocs.yml in the parent file if a subdirectory is used
+    if (
+        Path.cwd() != repo_dir
+    ):  # look for mkgendocs.yml in the parent file if a subdirectory is used
         repo_dir = repo_dir.parent
 
     functions = defaultdict(list)
@@ -52,7 +52,7 @@ def automate_mkdocs_from_docstring(
 
     with open(f"{repo_dir}/{mkgendocs_f}", "r+") as mkgen_config:
         insert_string = ""
-        paths = list(set(list(classes)+list(functions)))
+        paths = list(set(list(classes) + list(functions)))
         for path in paths:
             relative_path = pathlib.Path(repo_dir).resolve()
             insert_string += (
@@ -60,7 +60,7 @@ def automate_mkdocs_from_docstring(
                 f'source: "{os.path.relpath(path.parent, relative_path)}/{path.stem}.py"\n'
             )
             if path in functions:
-                insert_string +="    functions:\n"
+                insert_string += "    functions:\n"
 
                 f_string = ""
                 for f in functions[path]:
@@ -70,7 +70,7 @@ def automate_mkdocs_from_docstring(
                 insert_string += f_string
 
             if path in classes:
-                insert_string +="    classes:\n"
+                insert_string += "    classes:\n"
 
                 f_string = ""
                 for f in classes[path]:
@@ -107,7 +107,7 @@ def main():
         match_string="pages:\n",
     )
     # mkgendocs copies everything from templates dir to sources_dir (sources_dir is recreated each time)
-    # if we want to have examples/notebooks/*.ipynb in documentation we have to copy them to templates ourselves    
+    # if we want to have examples/notebooks/*.ipynb in documentation we have to copy them to templates ourselves
     try:
         shutil.rmtree("docs_mk/templates/examples")
     except OSError as e:
@@ -115,11 +115,14 @@ def main():
     os.makedirs("docs_mk/templates/examples")
 
     cwd = os.getcwd() + "/examples"
-    onlyfiles = [os.path.join(cwd, f) for f in os.listdir("examples") if os.path.isfile(os.path.join(cwd, f))]
+    onlyfiles = [
+        os.path.join(cwd, f)
+        for f in os.listdir("examples")
+        if os.path.isfile(os.path.join(cwd, f))
+    ]
     for file in onlyfiles:
-        if ".ipynb" in file:  # and ".ipynb_checkpoints" not in file:
+        if ".ipynb" in file:
             shutil.copy(file, "docs_mk/templates/examples/")
-
 
 
 if __name__ == "__main__":
