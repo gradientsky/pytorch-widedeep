@@ -31,6 +31,9 @@ htmlcov*/
 *.sublime-workspace
 sftp*-config.json
 
+# vscode
+.vscode
+
 # misc
 .DS_store
 
@@ -39,6 +42,8 @@ sftp*-config.json
 
 # Documentation
 _build
+docs_mk/sources/
+site/
 
 # _static
 _templates
